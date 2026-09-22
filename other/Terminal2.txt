@@ -1,0 +1,1016 @@
+ -V, --version             display version information and exit
+      --help                display this help text and exit
+
+Output control:
+  -m, --max-count=NUM       stop after NUM selected lines
+  -b, --byte-offset         print the byte offset with output lines
+  -n, --line-number         print line number with output lines
+      --line-buffered       flush output on every line
+  -H, --with-filename       print file name with output lines
+  -h, --no-filename         suppress the file name prefix on output
+      --label=LABEL         use LABEL as the standard input file name prefix
+  -o, --only-matching       show only nonempty parts of lines that match
+  -q, --quiet, --silent     suppress all normal output
+      --binary-files=TYPE   assume that binary files are TYPE;
+                            TYPE is 'binary', 'text', or 'without-match'
+  -a, --text                equivalent to --binary-files=text
+  -I                        equivalent to --binary-files=without-match
+  -d, --directories=ACTION  how to handle directories;
+                            ACTION is 'read', 'recurse', or 'skip'
+  -D, --devices=ACTION      how to handle devices, FIFOs and sockets;
+                            ACTION is 'read' or 'skip'
+  -r, --recursive           like --directories=recurse
+  -R, --dereference-recursive  likewise, but follow all symlinks
+      --include=GLOB        search only files that match GLOB (a file pattern)
+      --exclude=GLOB        skip files that match GLOB
+      --exclude-from=FILE   skip files that match any file pattern from FILE
+      --exclude-dir=GLOB    skip directories that match GLOB
+  -L, --files-without-match  print only names of FILEs with no selected lines
+  -l, --files-with-matches  print only names of FILEs with selected lines
+  -c, --count               print only a count of selected lines per FILE
+  -T, --initial-tab         make tabs line up (if needed)
+  -Z, --null                print 0 byte after FILE name
+
+Context control:
+  -B, --before-context=NUM  print NUM lines of leading context
+  -A, --after-context=NUM   print NUM lines of trailing context
+  -C, --context=NUM         print NUM lines of output context
+  -NUM                      same as --context=NUM
+      --group-separator=SEP  print SEP on line between matches with context
+      --no-group-separator  do not print separator for matches with context
+      --color[=WHEN],
+      --colour[=WHEN]       use markers to highlight the matching strings;
+                            WHEN is 'always', 'never', or 'auto'
+  -U, --binary              do not strip CR characters at EOL (MSDOS/Windows)
+
+When FILE is '-', read standard input.  With no FILE, read '.' if
+recursive, '-' otherwise.  With fewer than two FILEs, assume -h.
+Exit status is 0 if any line is selected, 1 otherwise;
+if any error occurs and -q is not given, the exit status is 2.
+
+Report bugs to: bug-grep@gnu.org
+GNU grep home page: <https://www.gnu.org/software/grep/>
+General help using GNU software: <https://www.gnu.org/gethelp/>
+vscode ➜ ~/lab0 (main) $ ls victor/kitchen/hot_station | grep *'_report'
+vscode ➜ ~/lab0 (main) $ ls victor/kitchen/hot_station | grep '.*_report'
+fedya_report
+senya_report
+vscode ➜ ~/lab0 (main) $ ls victor/kitchen/hot_station | grep '.*_report' | grep -i 'катя'
+vscode ➜ ~/lab0 (main) $ ls victor/kitchen/hot_station | grep '.*_report' | grep -r -i 'катя'
+victor/office/katya_schedule:Катя приходит на кухню к десяти часам
+victor/office/katya_schedule:Вечером Катя помогает Лёве закрыть смену
+victor/office/successful_experiment:Катя подготовит итоговый рецепт вечером
+victor/kitchen/hot_station/fedya_report:Катя предложила необычную подачу блюда
+victor/kitchen/chef_order:Катя отвечает за молекулярную часть меню
+victor/kitchen/molecular_station/foam_recipe:Катя готовит свекольную пену для нового блюда
+victor/kitchen/molecular_station/nitrogen_notes:Катя проверила защитные перчатки
+victor/kitchen/team_report:Катя предложила необычную подачу блюда
+experiments/tasting_results:Катя подготовит итоговый рецепт вечером
+experiments/tasting_results:Катя отвечает за молекулярную часть меню
+experiments/molecular_backup/foam_recipe:Катя готовит свекольную пену для нового блюда
+experiments/molecular_backup/nitrogen_notes:Катя проверила защитные перчатки
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/hot_station/*_report 
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0 (main) $ ls victor/kitchen/hot_station | grep '.*_report' | grep -r -i 'катя' ./
+./victor/office/katya_schedule:Катя приходит на кухню к десяти часам
+./victor/office/katya_schedule:Вечером Катя помогает Лёве закрыть смену
+./victor/office/successful_experiment:Катя подготовит итоговый рецепт вечером
+./victor/kitchen/hot_station/fedya_report:Катя предложила необычную подачу блюда
+./victor/kitchen/chef_order:Катя отвечает за молекулярную часть меню
+./victor/kitchen/molecular_station/foam_recipe:Катя готовит свекольную пену для нового блюда
+./victor/kitchen/molecular_station/nitrogen_notes:Катя проверила защитные перчатки
+./victor/kitchen/team_report:Катя предложила необычную подачу блюда
+./experiments/tasting_results:Катя подготовит итоговый рецепт вечером
+./experiments/tasting_results:Катя отвечает за молекулярную часть меню
+./experiments/molecular_backup/foam_recipe:Катя готовит свекольную пену для нового блюда
+./experiments/molecular_backup/nitrogen_notes:Катя проверила защитные перчатки
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/hot_station/*_report | tail
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0 (main) $ tail --help
+Usage: tail [OPTION]... [FILE]...
+Print the last 10 lines of each FILE to standard output.
+With more than one FILE, precede each with a header giving the file name.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -c, --bytes=[+]NUM       output the last NUM bytes; or use -c +NUM to
+                             output starting with byte NUM of each file
+  -f, --follow[={name|descriptor}]
+                           output appended data as the file grows;
+                             an absent option argument means 'descriptor'
+  -F                       same as --follow=name --retry
+  -n, --lines=[+]NUM       output the last NUM lines, instead of the last 10;
+                             or use -n +NUM to skip NUM-1 lines at the start
+      --max-unchanged-stats=N
+                           with --follow=name, reopen a FILE which has not
+                             changed size after N (default 5) iterations
+                             to see if it has been unlinked or renamed
+                             (this is the usual case of rotated log files);
+                             with inotify, this option is rarely useful
+      --pid=PID            with -f, terminate after process ID, PID dies;
+                             can be repeated to watch multiple processes
+  -q, --quiet, --silent    never output headers giving file names
+      --retry              keep trying to open a file if it is inaccessible
+  -s, --sleep-interval=N   with -f, sleep for approximately N seconds
+                             (default 1.0) between iterations;
+                             with inotify and --pid=P, check process P at
+                             least once every N seconds
+  -v, --verbose            always output headers giving file names
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help        display this help and exit
+      --version     output version information and exit
+
+NUM may have a multiplier suffix:
+b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024,
+GB 1000*1000*1000, G 1024*1024*1024, and so on for T, P, E, Z, Y, R, Q.
+Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+With --follow (-f), tail defaults to following the file descriptor, which
+means that even if a tail'ed file is renamed, tail will continue to track
+its end.  This default behavior is not desirable when you really want to
+track the actual name of the file, not the file descriptor (e.g., log
+rotation).  Use --follow=name in that case.  That causes tail to track the
+named file in a way that accommodates renaming, removal and creation.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/tail>
+or available locally via: info '(coreutils) tail invocation'
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/hot_station/*_report | tail -n
+tail: option requires an argument -- 'n'
+Try 'tail --help' for more information.
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/hot_station/*_report | tail -n1
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0 (main) $ head --help
+Usage: head [OPTION]... [FILE]...
+Print the first 10 lines of each FILE to standard output.
+With more than one FILE, precede each with a header giving the file name.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+  -c, --bytes=[-]NUM       print the first NUM bytes of each file;
+                             with the leading '-', print all but the last
+                             NUM bytes of each file
+  -n, --lines=[-]NUM       print the first NUM lines instead of the first 10;
+                             with the leading '-', print all but the last
+                             NUM lines of each file
+  -q, --quiet, --silent    never print headers giving file names
+  -v, --verbose            always print headers giving file names
+  -z, --zero-terminated    line delimiter is NUL, not newline
+      --help        display this help and exit
+      --version     output version information and exit
+
+NUM may have a multiplier suffix:
+b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024,
+GB 1000*1000*1000, G 1024*1024*1024, and so on for T, P, E, Z, Y, R, Q.
+Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/head>
+or available locally via: info '(coreutils) head invocation'
+vscode ➜ ~/lab0 (main) $ tail -n1 victor/kitchen/hot_station/*_report
+==> victor/kitchen/hot_station/fedya_report <==
+Баринов одобрил только второй вариант
+
+==> victor/kitchen/hot_station/senya_report <==
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0 (main) $ tail -q -n1 victor/kitchen/hot_station/*_report
+Баринов одобрил только второй вариант
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0 (main) $ tail -q -n1 victor/kitchen/hot_station/*_report | head -q -n1 victor/kitchen/hot_station/*_report
+Федя получил свежую рыбу
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/
+*_report
+Баринов одобрил только второй вариант
+К вечеру заказ был выполнен
+Федя получил свежую рыбу
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report | grep -E -i 'баринов|блюд' | sort
+Баринов одобрил только второй вариант
+К вечеру заказ был выполнен
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report | grep -E -i 'баринов|блюд' 
+Баринов одобрил только второй вариант
+К вечеру заказ был выполнен
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ (tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station
+/*_report) | grep -E -i 'баринов|блюд' 
+Баринов одобрил только второй вариант
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ (tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report) | grep -E -i 'баринов|блюд' | sort 
+Баринов одобрил только второй вариант
+Сеня подготовил мясо для горячего блюда
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report || grep -v -E 'Сеня|Федя'
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя'
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд'
+Катя предложила необычную подачу блюда
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r
+Катя предложила необычную подачу блюда
+vscode ➜ ~/lab0 (main) $ wc --help
+Usage: wc [OPTION]... [FILE]...
+  or:  wc [OPTION]... --files0-from=F
+Print newline, word, and byte counts for each FILE, and a total line if
+more than one FILE is specified.  A word is a nonempty sequence of non white
+space delimited by white space characters or by start or end of input.
+
+With no FILE, or when FILE is -, read standard input.
+
+The options below may be used to select which counts are printed, always in
+the following order: newline, word, character, byte, maximum line length.
+  -c, --bytes            print the byte counts
+  -m, --chars            print the character counts
+  -l, --lines            print the newline counts
+      --files0-from=F    read input from the files specified by
+                           NUL-terminated names in file F;
+                           If F is - then read names from standard input
+  -L, --max-line-length  print the maximum display width
+  -w, --words            print the word counts
+      --total=WHEN       when to print a line with total counts;
+                           WHEN can be: auto, always, only, never
+      --help        display this help and exit
+      --version     output version information and exit
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/wc>
+or available locally via: info '(coreutils) wc invocation'
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r
+Катя предложила необычную подачу блюда
+vscode ➜ ~/lab0 (main) $ cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r | wc -w
+5
+vscode ➜ ~/lab0 (main) $ ls -l -R
+.:
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+
+./archive_empty:
+total 0
+
+./experiments:
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+
+./experiments/molecular_backup:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes
+
+./victor:
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 16:44 kitchen
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+
+./victor/hall:
+total 4
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+
+./victor/kitchen:
+total 20
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+
+./victor/kitchen/hot_station:
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+
+./victor/kitchen/molecular_station:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+
+./victor/office:
+total 12
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '^l'
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+vscode ➜ ~/lab0 (main) $ sort --help
+Usage: sort [OPTION]... [FILE]...
+  or:  sort [OPTION]... --files0-from=F
+Write sorted concatenation of all FILE(s) to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+Mandatory arguments to long options are mandatory for short options too.
+Ordering options:
+
+  -b, --ignore-leading-blanks  ignore leading blanks
+  -d, --dictionary-order      consider only blanks and alphanumeric characters
+  -f, --ignore-case           fold lower case to upper case characters
+  -g, --general-numeric-sort  compare according to general numerical value
+  -i, --ignore-nonprinting    consider only printable characters
+  -M, --month-sort            compare (unknown) < 'JAN' < ... < 'DEC'
+  -h, --human-numeric-sort    compare human readable numbers (e.g., 2K 1G)
+  -n, --numeric-sort          compare according to string numerical value;
+                                see full documentation for supported strings
+  -R, --random-sort           shuffle, but group identical keys.  See shuf(1)
+      --random-source=FILE    get random bytes from FILE
+  -r, --reverse               reverse the result of comparisons
+      --sort=WORD             sort according to WORD:
+                                general-numeric -g, human-numeric -h, month -M,
+                                numeric -n, random -R, version -V
+  -V, --version-sort          natural sort of (version) numbers within text
+
+Other options:
+
+      --batch-size=NMERGE   merge at most NMERGE inputs at once;
+                            for more use temp files
+  -c, --check, --check=diagnose-first  check for sorted input; do not sort
+  -C, --check=quiet, --check=silent  like -c, but do not report first bad line
+      --compress-program=PROG  compress temporaries with PROG;
+                              decompress them with PROG -d
+      --debug               annotate the part of the line used to sort,
+                              and warn about questionable usage to stderr
+      --files0-from=F       read input from the files specified by
+                            NUL-terminated names in file F;
+                            If F is - then read names from standard input
+  -k, --key=KEYDEF          sort via a key; KEYDEF gives location and type
+  -m, --merge               merge already sorted files; do not sort
+  -o, --output=FILE         write result to FILE instead of standard output
+  -s, --stable              stabilize sort by disabling last-resort comparison
+  -S, --buffer-size=SIZE    use SIZE for main memory buffer
+  -t, --field-separator=SEP  use SEP instead of non-blank to blank transition
+  -T, --temporary-directory=DIR  use DIR for temporaries, not $TMPDIR or /tmp;
+                              multiple options specify multiple directories
+      --parallel=N          change the number of sorts run concurrently to N
+  -u, --unique              output only the first of lines with equal keys;
+                              with -c, check for strict ordering
+  -z, --zero-terminated     line delimiter is NUL, not newline
+      --help        display this help and exit
+      --version     output version information and exit
+
+KEYDEF is F[.C][OPTS][,F[.C][OPTS]] for start and stop position, where F is a
+field number and C a character position in the field; both are origin 1, and
+the stop position defaults to the line's end.  If neither -t nor -b is in
+effect, characters in a field are counted from the beginning of the preceding
+whitespace.  OPTS is one or more single-letter ordering options [bdfgiMhnRrV],
+which override global ordering options for that key.  If no key is given, use
+the entire line as the key.  Use --debug to diagnose incorrect key usage.
+
+SIZE may be followed by the following multiplicative suffixes:
+% 1% of memory, b 1, K 1024 (default), and so on for M, G, T, P, E, Z, Y, R, Q.
+
+*** WARNING ***
+The locale specified by the environment affects sort order.
+Set LC_ALL=C to get the traditional sort order that uses
+native byte values.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/sort>
+or available locally via: info '(coreutils) sort invocation'
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '^l' 
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '^l' | sort -k9 -r
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+vscode ➜ ~/lab0 (main) $ man cat
+vscode ➜ ~/lab0 (main) $ cat --help
+Usage: cat [OPTION]... [FILE]...
+Concatenate FILE(s) to standard output.
+
+With no FILE, or when FILE is -, read standard input.
+
+  -A, --show-all           equivalent to -vET
+  -b, --number-nonblank    number nonempty output lines, overrides -n
+  -e                       equivalent to -vE
+  -E, --show-ends          display $ at end of each line
+  -n, --number             number all output lines
+  -s, --squeeze-blank      suppress repeated empty output lines
+  -t                       equivalent to -vT
+  -T, --show-tabs          display TAB characters as ^I
+  -u                       (ignored)
+  -v, --show-nonprinting   use ^ and M- notation, except for LFD and TAB
+      --help        display this help and exit
+      --version     output version information and exit
+
+Examples:
+  cat f - g  Output f's contents, then standard input, then g's contents.
+  cat        Copy standard input to standard output.
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/cat>
+or available locally via: info '(coreutils) cat invocation'
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '^l' | sort -r
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+vscode ➜ ~/lab0 (main) $ ls -l -R
+.:
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+
+./archive_empty:
+total 0
+
+./experiments:
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+
+./experiments/molecular_backup:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes
+
+./victor:
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 16:44 kitchen
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+
+./victor/hall:
+total 4
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+
+./victor/kitchen:
+total 20
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+
+./victor/kitchen/hot_station:
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+
+./victor/kitchen/molecular_station:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+
+./victor/office:
+total 12
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (main) $ ^C
+vscode ➜ ~/lab0 (main) $ grep --help
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Search for PATTERNS in each FILE.
+Example: grep -i 'hello world' menu.h main.c
+PATTERNS can contain multiple patterns separated by newlines.
+
+Pattern selection and interpretation:
+  -E, --extended-regexp     PATTERNS are extended regular expressions
+  -F, --fixed-strings       PATTERNS are strings
+  -G, --basic-regexp        PATTERNS are basic regular expressions
+  -P, --perl-regexp         PATTERNS are Perl regular expressions
+  -e, --regexp=PATTERNS     use PATTERNS for matching
+  -f, --file=FILE           take PATTERNS from FILE
+  -i, --ignore-case         ignore case distinctions in patterns and data
+      --no-ignore-case      do not ignore case distinctions (default)
+  -w, --word-regexp         match only whole words
+  -x, --line-regexp         match only whole lines
+  -z, --null-data           a data line ends in 0 byte, not newline
+
+Miscellaneous:
+  -s, --no-messages         suppress error messages
+  -v, --invert-match        select non-matching lines
+  -V, --version             display version information and exit
+      --help                display this help text and exit
+
+Output control:
+  -m, --max-count=NUM       stop after NUM selected lines
+  -b, --byte-offset         print the byte offset with output lines
+  -n, --line-number         print line number with output lines
+      --line-buffered       flush output on every line
+  -H, --with-filename       print file name with output lines
+  -h, --no-filename         suppress the file name prefix on output
+      --label=LABEL         use LABEL as the standard input file name prefix
+  -o, --only-matching       show only nonempty parts of lines that match
+  -q, --quiet, --silent     suppress all normal output
+      --binary-files=TYPE   assume that binary files are TYPE;
+                            TYPE is 'binary', 'text', or 'without-match'
+  -a, --text                equivalent to --binary-files=text
+  -I                        equivalent to --binary-files=without-match
+  -d, --directories=ACTION  how to handle directories;
+                            ACTION is 'read', 'recurse', or 'skip'
+  -D, --devices=ACTION      how to handle devices, FIFOs and sockets;
+                            ACTION is 'read' or 'skip'
+  -r, --recursive           like --directories=recurse
+  -R, --dereference-recursive  likewise, but follow all symlinks
+      --include=GLOB        search only files that match GLOB (a file pattern)
+      --exclude=GLOB        skip files that match GLOB
+      --exclude-from=FILE   skip files that match any file pattern from FILE
+      --exclude-dir=GLOB    skip directories that match GLOB
+  -L, --files-without-match  print only names of FILEs with no selected lines
+  -l, --files-with-matches  print only names of FILEs with selected lines
+  -c, --count               print only a count of selected lines per FILE
+  -T, --initial-tab         make tabs line up (if needed)
+  -Z, --null                print 0 byte after FILE name
+
+Context control:
+  -B, --before-context=NUM  print NUM lines of leading context
+  -A, --after-context=NUM   print NUM lines of trailing context
+  -C, --context=NUM         print NUM lines of output context
+  -NUM                      same as --context=NUM
+      --group-separator=SEP  print SEP on line between matches with context
+      --no-group-separator  do not print separator for matches with context
+      --color[=WHEN],
+      --colour[=WHEN]       use markers to highlight the matching strings;
+                            WHEN is 'always', 'never', or 'auto'
+  -U, --binary              do not strip CR characters at EOL (MSDOS/Windows)
+
+When FILE is '-', read standard input.  With no FILE, read '.' if
+recursive, '-' otherwise.  With fewer than two FILEs, assume -h.
+Exit status is 0 if any line is selected, 1 otherwise;
+if any error occurs and -q is not given, the exit status is 2.
+
+Report bugs to: bug-grep@gnu.org
+GNU grep home page: <https://www.gnu.org/software/grep/>
+General help using GNU software: <https://www.gnu.org/gethelp/>
+vscode ➜ ~/lab0 (main) $ ls -l -R
+.:
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+
+./archive_empty:
+total 0
+
+./experiments:
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+
+./experiments/molecular_backup:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes
+
+./victor:
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 16:44 kitchen
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+
+./victor/hall:
+total 4
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+
+./victor/kitchen:
+total 20
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+
+./victor/kitchen/hot_station:
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+
+./victor/kitchen/molecular_station:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+
+./victor/office:
+total 12
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '.*2_vscode'
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '.*2_vscode*'
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '2_vscode'
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '^-'
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (main) $ ls -l -R | grep '2 vscode'
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+vscode ➜ ~/lab0 (main) $ man ls
+vscode ➜ ~/lab0 (main) $ man ls
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '2 vscode'
+68598 drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+68600 drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+68602 drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+68603 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+68609 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+68608 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '2 vscode' | sort -n1
+sort: invalid option -- '1'
+Try 'sort --help' for more information.
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '2 vscode' | sort -k1
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+68598 drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+68600 drwxr-x--- 2 vscode vscode 4096 Sep 12 17:29 molecular_backup
+68602 drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+68603 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+68608 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+68609 drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '^-' | grep '2 vscode' | sort -k1
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep ' -' | grep '2 vscode' | sort -k1
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '^-' | grep '2 vscode' | sort -n -k1
+vscode ➜ ~/lab0 (main) $ man sort
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '^-' | grep '2 vscode' | sort -k1 -n
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep '^-' | grep '2 vscode' | sort -k1
+vscode ➜ ~/lab0 (main) $ ls -il -R | grep ' -' | grep '2 vscode' | sort -n -k1
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+68567 -rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+vscode ➜ ~/lab0 (main) $ rm --help
+Usage: rm [OPTION]... [FILE]...
+Remove (unlink) the FILE(s).
+
+  -f, --force           ignore nonexistent files and arguments, never prompt
+  -i                    prompt before every removal
+  -I                    prompt once before removing more than three files, or
+                          when removing recursively; less intrusive than -i,
+                          while still giving protection against most mistakes
+      --interactive[=WHEN]  prompt according to WHEN: never, once (-I), or
+                          always (-i); without WHEN, prompt always
+      --one-file-system  when removing a hierarchy recursively, skip any
+                          directory that is on a file system different from
+                          that of the corresponding command line argument
+      --no-preserve-root  do not treat '/' specially
+      --preserve-root[=all]  do not remove '/' (default);
+                              with 'all', reject any command line argument
+                              on a separate device from its parent
+  -r, -R, --recursive   remove directories and their contents recursively
+  -d, --dir             remove empty directories
+  -v, --verbose         explain what is being done
+      --help        display this help and exit
+      --version     output version information and exit
+
+By default, rm does not remove directories.  Use the --recursive (-r or -R)
+option to remove each listed directory, too, along with all of its contents.
+
+Any attempt to remove a file whose last file name component is '.' or '..'
+is rejected with a diagnostic.
+
+To remove a file whose name starts with a '-', for example '-foo',
+use one of these commands:
+  rm -- -foo
+
+  rm ./-foo
+
+If you use rm to remove a file, it might be possible to recover
+some of its contents, given sufficient expertise and/or time.  For greater
+assurance that the contents are unrecoverable, consider using shred(1).
+
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+Full documentation <https://www.gnu.org/software/coreutils/rm>
+or available locally via: info '(coreutils) rm invocation'
+vscode ➜ ~/lab0 (main) $ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+vscode ➜ ~/lab0 (main) $ rm experiments/tasting_results
+vscode ➜ ~/lab0 (main) $ rm experiments/current_recipe
+vscode ➜ ~/lab0 (main) $ rm kitchen_entry
+vscode ➜ ~/lab0 (main) $ ls -l
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 20 16:36 experiments
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (main) $ rm opening_message
+vscode ➜ ~/lab0 (main) $ rm victor/kitchen/shift_order
+vscode ➜ ~/lab0 (main) $ rm victor/kitchen/molecular_station/nitrogen_notes
+vscode ➜ ~/lab0 (main) $ rmdir archive_empty
+vscode ➜ ~/lab0 (main) $ rm -r experiments/molecular_backup
+vscode ➜ ~/lab0 (main) $ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    experiments/current_recipe
+        deleted:    experiments/molecular_backup/foam_recipe
+        deleted:    experiments/molecular_backup/nitrogen_notes
+        deleted:    experiments/tasting_results
+        deleted:    kitchen_entry
+        deleted:    opening_message
+        deleted:    victor/kitchen/molecular_station/nitrogen_notes
+        deleted:    victor/kitchen/shift_order
+
+no changes added to commit (use "git add" and/or "git commit -a")
+vscode ➜ ~/lab0 (main) $ git add .
+vscode ➜ ~/lab0 (main) $ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    experiments/current_recipe
+        deleted:    experiments/molecular_backup/foam_recipe
+        deleted:    experiments/molecular_backup/nitrogen_notes
+        deleted:    experiments/tasting_results
+        deleted:    kitchen_entry
+        deleted:    opening_message
+        deleted:    victor/kitchen/molecular_station/nitrogen_notes
+        deleted:    victor/kitchen/shift_order
+
+vscode ➜ ~/lab0 (main) $ git commit -m 'Пункты 4-5'
+[main 02507b0] Пункты 4-5
+ 8 files changed, 30 deletions(-)
+ delete mode 120000 experiments/current_recipe
+ delete mode 100644 experiments/molecular_backup/foam_recipe
+ delete mode 100644 experiments/molecular_backup/nitrogen_notes
+ delete mode 100644 experiments/tasting_results
+ delete mode 120000 kitchen_entry
+ delete mode 100644 opening_message
+ delete mode 100644 victor/kitchen/molecular_station/nitrogen_notes
+ delete mode 100644 victor/kitchen/shift_order
+vscode ➜ ~/lab0 (main) $ git push origin main
+fatal: could not read Username for 'https://github.com': terminal prompts disabled
+fatal: could not read Username for 'https://github.com': terminal prompts disabled
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 458 bytes | 458.00 KiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/gordeyr/lab0-gordeyr.git
+   2b1c55e..02507b0  main -> main
+vscode ➜ ~/lab0 (main) $ history
+    1  cd ../
+    2  ls
+    3  cd ../
+    4  ls
+    5  cd ~/
+    6  ls
+    7  cd lab0
+    8  ls
+    9  man cp
+   10  man ls
+   11  git status
+   12  git add .
+   13  git commit -m "1-3"
+   14  ../
+   15  code ~/lab0
+   16  git remote add origin https://github.com/gordeyr/lab0-gordeyr.git
+   17  git branch -M main
+   18  git push -u origin main
+   19  man ls
+   20  ls -lr
+   21  ls -l
+   22  man ls
+   23  ls -lR
+   24  man wc
+   25  man ls
+   26  man cat
+   27  man sort
+   28  ls -lR | sort -sort=-
+   29  man sort
+   30  ls -Rl | sort --sort=-
+   31  sort --help
+   32  grep --help
+   33  sort --help
+   34  ls -lR | sort -k1
+   35  man tail
+   36  man grep
+   37  ls -lR | grep -
+   38  ls -lR | grep rwx
+   39  man grep
+   40  ls -lR | grep ^-
+   41  man sort
+   42  ls -lR | grep ^- | sort -n -k5
+   43  man tail
+   44  ls -lR | grep ^- | sort -n -k5 | tail -n5
+   45  ls -R victor experiments
+   46  man cat
+   47  ls -R victor experiments | cat
+   48  grep man
+   49  ls -lR | grep ^- | sort -n -k5 | tail -n5
+   50  ls -R | grep ^- | cat
+   51  ls -lR | grep ^- | cat
+   52  man cat
+   53  ls -lR | grep ^- | cat -A
+   54  man cat
+   55  cat
+   56  cat -A
+   57  cat --help
+   58  man grep
+   59  grep --help
+   60  grep -r -i "катя"
+   61  man grep
+   62  grep -r -i "катя" "барин"
+   63  man grep
+   64  grep -r -iкатя
+   65  grep -r -i'катя'
+   66  grep -r -i катя
+   67  grep -r -i катя -i барин
+   68  grep -r -i катя || барин
+   69  grep -r -i катя||барин
+   70  man grep
+   71  grep -r -ie катя барин
+   72  grep -r -e катя
+   73  grep -r катя
+   74  grep -r 
+   75  grep -r 'катя'
+   76  grep катя
+   77  man grep
+   78  grep -r -i 'катя' -L
+   79  man grep
+   80  grep -r -h -i катя
+   81  cat | grep -r -h -i катя | grep -r -h -i барин
+   82  man grep
+   83  grep --help
+   84  grep -r -h -v 'гост'
+   85  man grep
+   86  grep --help
+   87  grep -r -h -iE 'катя|баринов'
+   88  grep -r
+   89  grep -r -h
+   90  grep -r -h -A
+   91  grep -r -h -iE 'катя|баринов' -v -i 'гост'
+   92  grep -r -h -E -i 'катя|баринов' | grep -v -i 'гост'
+   93  grep -r -E -h -i 'катя|баринов' | grep -v -i 'гост' | sort -r
+   94  grep -r -h -E -i 'катя|баринов' | grep -v -i 'гост' | sort -r | head -n6
+   95  sort --help
+   96  wc --help
+   97  man grep
+   98  grep 'катя' victor/kitchen/molecular_station
+   99  grep --help
+  100  grep -d 'катя' victor/kitchen/molecular_station
+  101  grep -d 'read' 'катя' victor/kitchen/molecular_station
+  102  grep 'катя' -d 'read' victor/kitchen/molecular_station
+  103  grep 'катя' victor/kitchen/molecular_station/
+  104  grep --help
+  105  grep -r 'катя' victor/kitchen/molecular_station
+  106  grep -r -i 'катя' victor/kitchen/molecular_station
+  107  grep --help
+  108  grep -r -l -i 'катя' victor/kitchen/molecular_station experiments/molecular_backup 
+  109  wc --help
+  110  grep -r -l -i 'катя' victor/kitchen/molecular_station experiments/molecular_backup | wc -l
+  111  ls victor/kitchen/hot_station 
+  112  ls victor/kitchen/hot_station | grep &_report
+  113  ls victor/kitchen/hot_station | grep '_report'
+  114  ls victor/kitchen/hot_station | grep '$_report'
+  115  ls victor/kitchen/hot_station | grep '_report&'
+  116  grep --help
+  117  ls victor/kitchen/hot_station | grep *'_report'
+  118  ls victor/kitchen/hot_station | grep '.*_report'
+  119  ls victor/kitchen/hot_station | grep '.*_report' | grep -i 'катя'
+  120  ls victor/kitchen/hot_station | grep '.*_report' | grep -r -i 'катя'
+  121  cat victor/kitchen/hot_station/*_report 
+  122  ls victor/kitchen/hot_station | grep '.*_report' | grep -r -i 'катя' ./
+  123  cat victor/kitchen/hot_station/*_report | tail
+  124  tail --help
+  125  cat victor/kitchen/hot_station/*_report | tail -n
+  126  cat victor/kitchen/hot_station/*_report | tail -n1
+  127  head --help
+  128  tail -n1 victor/kitchen/hot_station/*_report
+  129  tail -q -n1 victor/kitchen/hot_station/*_report
+  130  tail -q -n1 victor/kitchen/hot_station/*_report | head -q -n1 victor/kitchen/hot_station/*_report
+  131  tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report
+  132  tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report | grep -E -i 'баринов|блюд' | sort
+  133  tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report | grep -E -i 'баринов|блюд' 
+  134  (tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report) | grep-E -i 'баринов|блюд' 
+  135  (tail -q -n1 victor/kitchen/hot_station/*_report; head -q -n1 victor/kitchen/hot_station/*_report) | grep-E -i 'баринов|блюд' | sort 
+  136  cat victor/kitchen/team_report
+  137  cat victor/kitchen/team_report || grep -v -E 'Сеня|Федя'
+  138  cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя'
+  139  cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд'
+  140  cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r
+  141  wc --help
+  142  cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r
+  143  cat victor/kitchen/team_report | grep -v -E 'Сеня|Федя' | grep 'блюд' | sort -r | wc -w
+  144  ls -l -R
+  145  ls -l -R | grep '^l'
+  146  sort --help
+  147  ls -l -R | grep '^l' 
+  148* 
+  149  man cat
+  150  cat --help
+  151  ls -l -R | grep '^l' | sort -r
+  152  ls -l -R
+  153  grep --help
+  154  ls -l -R
+  155  ls -l -R | grep '.*2_vscode'
+  156  ls -l -R | grep '.*2_vscode*'
+  157  ls -l -R | grep '2_vscode'
+  158  ls -l -R | grep '^-'
+  159  ls -l -R | grep '2 vscode'
+  160  man ls
+  161  ls -il -R | grep '2 vscode'
+  162  ls -il -R | grep '2 vscode' | sort -n1
+  163  ls -il -R | grep '2 vscode' | sort -k1
+  164  ls -il -R | grep '^-' | grep '2 vscode' | sort -k1
+  165  ls -il -R | grep ' -' | grep '2 vscode' | sort -k1
+  166  ls -il -R | grep '^-' | grep '2 vscode' | sort -n -k1
+  167  man sort
+  168  ls -il -R | grep '^-' | grep '2 vscode' | sort -k1 -n
+  169  ls -il -R | grep '^-' | grep '2 vscode' | sort -k1
+  170  ls -il -R | grep ' -' | grep '2 vscode' | sort -n -k1
+  171  rm --help
+  172  git status
+  173  rm experiments/tasting_results
+  174  rm experiments/current_recipe
+  175  rm kitchen_entry
+  176  ls -l
+  177  rm opening_message
+  178  rm victor/kitchen/shift_order
+  179  rm victor/kitchen/molecular_station/nitrogen_notes
+  180  rmdir archive_empty
+  181  rm -r experiments/molecular_backup
+  182  git status
+  183  git add .
+  184  git status
+  185  git commit -m 'Пункты 4-5'
+  186  git push origin main
+  187  history
+vscode ➜ ~/lab0 (main) $ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+vscode ➜ ~/lab0 (main) $ ^C
+vscode ➜ ~/lab0 (main) $ 

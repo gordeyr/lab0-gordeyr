@@ -1,0 +1,1016 @@
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+vscode ➜ ~/lab0 $ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+Initialized empty Git repository in /home/vscode/lab0/.git/
+vscode ➜ ~/lab0 (master) $ man ls
+vscode ➜ ~/lab0 (master) $ man pwd
+vscode ➜ ~/lab0 (master) $ man cat
+vscode ➜ ~/lab0 (master) $ ls
+vscode ➜ ~/lab0 (master) $ ls lab0
+ls: cannot access 'lab0': No such file or directory
+vscode ➜ ~/lab0 (master) $ cd
+vscode ➜ ~ $ ls lab0
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ man mkdir
+vscode ➜ ~/lab0 (master) $ mkdir victor
+vscode ➜ ~/lab0 (master) $ cd lab0/victor
+bash: cd: lab0/victor: No such file or directory
+vscode ➜ ~/lab0 (master) $ ls lab0
+ls: cannot access 'lab0': No such file or directory
+vscode ➜ ~/lab0 (master) $ cd
+vscode ➜ ~ $ ls lab0
+victor
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ mkdir experiments
+vscode ➜ ~/lab0 (master) $ cd experimentz
+bash: cd: experimentz: No such file or directory
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ cd lab0
+bash: cd: lab0: No such file or directory
+vscode ➜ ~/lab0/experiments (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ mkdir archive_empty
+vscode ➜ ~/lab0 (master) $ cd
+vscode ➜ ~ $ ls
+lab0
+vscode ➜ ~ $ ls lab0
+archive_empty  experiments  victor
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ man cat
+vscode ➜ ~/lab0 (master) $ echo "^[[200~Ресторан Victor открывается в полдень"
+Ресторан Victor открывается в полдень
+vscode ➜ ~/lab0 (master) $ Вика встречает первых гостей
+bash: Вика: command not found
+vscode ➜ ~/lab0 (master) $ Баринов лично проверяет новое меню
+bash: Баринов: command not found
+vscode ➜ ~/lab0 (master) $ Команда собирается на кухне до открытия~
+bash: Команда: command not found
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  victor
+vscode ➜ ~/lab0 (master) $ echo "Ресторан Victor открывается в полдень
+Вика встречает первых гостей
+Баринов лично проверяет новое меню
+Команда собирается на кухне до открытия" > opening_message.txt
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ man cat
+vscode ➜ ~/lab0 (master) $ cat opening_message.txt
+Ресторан Victor открывается в полдень
+Вика встречает первых гостей
+Баринов лично проверяет новое меню
+Команда собирается на кухне до открытия
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ echo "Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером" > tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ ls expiriments
+ls: cannot access 'expiriments': No such file or directory
+vscode ➜ ~/lab0 (master) $ ls experiments
+tasting_results.txt
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ mkdir kitchen
+vscode ➜ ~/lab0/victor (master) $ mkdir hall
+vscode ➜ ~/lab0/victor (master) $ mkdir office
+vscode ➜ ~/lab0/victor (master) $ ls
+hall  kitchen  office
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ echo "Катя приходит на кухню к десяти часам
+До обеда проводится первый опыт
+После дегустации нужно встретиться с Бариновым
+Вечером Катя помогает Лёве закрыть смену" > katya_schedule.txt
+vscode ➜ ~/lab0/victor/office (master) $ ls
+katya_schedule.txt
+vscode ➜ ~/lab0/victor/office (master) $ cd victor
+bash: cd: victor: No such file or directory
+vscode ➜ ~/lab0/victor/office (master) $ cd lab0/victor
+bash: cd: lab0/victor: No such file or directory
+vscode ➜ ~/lab0/victor/office (master) $ cd ~/lab0/victor
+vscode ➜ ~/lab0/victor (master) $ cd hall
+vscode ➜ ~/lab0/victor/hall (master) $ echo "Столик два забронирован для критика
+Столик пять подготовить к семнадцати часам
+Большой стол оставить для команды ресторана
+Вика проверит готовность зала перед открытием" > reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ echo "Гости похвалили необычную подачу блюда
+Один гость попросил вернуть обычный десерт
+Критик отметил точность работы Кати
+Новое меню вызвало интерес у посетителей" > guest_reviews.txt
+vscode ➜ ~/lab0/victor/hall (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ ls experiments
+tasting_results.txt
+vscode ➜ ~/lab0 (master) $ ls victor
+hall  kitchen  office
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ ls hall
+guest_reviews.txt  reservations.txt
+vscode ➜ ~/lab0/victor (master) $ ls office
+katya_schedule.txt
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ cat ^C
+vscode ➜ ~/lab0/victor/office (master) $ cat katya_schedule.txt
+Катя приходит на кухню к десяти часам
+До обеда проводится первый опыт
+После дегустации нужно встретиться с Бариновым
+Вечером Катя помогает Лёве закрыть смену
+vscode ➜ ~/lab0/victor/office (master) $ cd ~/lab0/victor/hall
+vscode ➜ ~/lab0/victor/hall (master) $ cat ^C
+vscode ➜ ~/lab0/victor/hall (master) $ cat guest_reviews.txt
+Гости похвалили необычную подачу блюда
+Один гость попросил вернуть обычный десерт
+Критик отметил точность работы Кати
+Новое меню вызвало интерес у посетителей
+vscode ➜ ~/lab0/victor/hall (master) $ cat reservations.txt
+Столик два забронирован для критика
+Столик пять подготовить к семнадцати часам
+Большой стол оставить для команды ресторана
+Вика проверит готовность зала перед открытием
+vscode ➜ ~/lab0/victor/hall (master) $ cd ~/lab0/victor/kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ echo "Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены" > chef_order.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ cat chef_order.txt
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+vscode ➜ ~/lab0/victor/kitchen (master) $ mkdir molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ mkdir hot_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd molecular_station
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ echo "Катя готовит свекольную пену для нового блюда
+Лёва проверяет температуру перед подачей
+Баринов требует сохранить вкус продуктов
+Рецепт отправят на вечернюю дегустацию" > foam_recipe.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ echo "Баллон с азотом доставлен утром
+Катя проверила защитные перчатки
+Сеня держится подальше от оборудования
+После опыта рабочее место нужно убрать" > nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls
+foam_recipe.txt  nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ cat foam_recipe.txt
+Катя готовит свекольную пену для нового блюда
+Лёва проверяет температуру перед подачей
+Баринов требует сохранить вкус продуктов
+Рецепт отправят на вечернюю дегустацию
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ cat nitrogen_notes.txt
+Баллон с азотом доставлен утром
+Катя проверила защитные перчатки
+Сеня держится подальше от оборудования
+После опыта рабочее место нужно убрать
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ cd ~/lab0/victor/kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd hot_station
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ echo "Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен" > senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ echo "Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант" > fedya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls
+fedya_report.txt  senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd fedya_report.txt
+bash: cd: fedya_report.txt: Not a directory
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cat fedya_report.txt
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cat senya_report.txt
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ св
+bash: св: command not found
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd
+vscode ➜ ~ $ chmod victor 755
+chmod: invalid mode: ‘victor’
+Try 'chmod --help' for more information.
+vscode ➜ ~ $ man chmod
+vscode ➜ ~ $ chmod 755 victor
+chmod: cannot access 'victor': No such file or directory
+vscode ➜ ~ $ lab0
+bash: lab0: command not found
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ chmod 755 victor
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ chmod u=rwx,g=rx,o= kitchen
+vscode ➜ ~/lab0/victor (master) $ ls -l
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:32 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 12:40 kitchen
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:29 office
+vscode ➜ ~/lab0/victor (master) $ cd kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ chmod 750 molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls -l
+total 12
+-rw-r--r-- 1 vscode vscode  311 Sep 12 12:39 chef_order.txt
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:49 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:46 molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd hot_station
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls
+fedya_report.txt  senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd ~/lab0/victor/kitchen/molecular_station
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls
+foam_recipe.txt  nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ chmod u=rw,g=r,o= foam_recipe.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls -l
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe.txt
+-rw-r--r-- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ chmod 640 nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls -l
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe.txt
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ~/lab0/victor/kitchen/hot_station
+bash: /home/vscode/lab0/victor/kitchen/hot_station: Is a directory
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ cd ~/lab0/victor/kitchen/hot_station
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ cd kitchen
+bash: cd: kitchen: No such file or directory
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ cd kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ chmod u=rwx,g=rx,o= hot_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls -l
+total 12
+-rw-r--r-- 1 vscode vscode  311 Sep 12 12:39 chef_order.txt
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:49 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:46 molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd hot_station
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls
+fedya_report.txt  senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ chmod 644 senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls -l
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report.txt
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ chmod u=rw,g=r,o=r fedya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls -l
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report.txt
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ cd kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ chmod 640 chef_order.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls -l
+total 12
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order.txt
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:49 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:46 molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd ~/lab0/victor
+vscode ➜ ~/lab0/victor (master) $ ls
+hall  kitchen  office
+vscode ➜ ~/lab0/victor (master) $ chmod u=rwx,g=rx,o=rx hall
+vscode ➜ ~/lab0/victor (master) $ ls -l
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:32 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 12:40 kitchen
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:29 office
+vscode ➜ ~/lab0/victor (master) $ cd hall
+vscode ➜ ~/lab0/victor/hall (master) $ ls
+guest_reviews.txt  reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ chmod 664 reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ ls -l
+total 8
+-rw-r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews.txt
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ chmod u=r,g=r,o=r guest_reviews.txt
+vscode ➜ ~/lab0/victor/hall (master) $ ls -l
+total 8
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews.txt
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ cd ~/lab0/victor
+vscode ➜ ~/lab0/victor (master) $ ls
+hall  kitchen  office
+vscode ➜ ~/lab0/victor (master) $ chmod 750 office
+vscode ➜ ~/lab0/victor (master) $ ls -l
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 12:32 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 12:40 kitchen
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:29 office
+vscode ➜ ~/lab0/victor (master) $ cd hall
+vscode ➜ ~/lab0/victor/hall (master) $ ls
+guest_reviews.txt  reservations.txt
+vscode ➜ ~/lab0/victor/hall (master) $ cd ~/lab0/victor/
+vscode ➜ ~/lab0/victor (master) $ ls
+hall  kitchen  office
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ l
+bash: l: command not found
+vscode ➜ ~/lab0/victor/office (master) $ ls
+katya_schedule.txt
+vscode ➜ ~/lab0/victor/office (master) $ chmod u=rw,g=r,o= katya_schedule.txt
+vscode ➜ ~/lab0/victor/office (master) $ ls -l
+total 4
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule.txt
+vscode ➜ ~/lab0/victor/office (master) $ cd
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ chmod u=rwx,g=rx,o= experiments
+vscode ➜ ~/lab0 (master) $ ls -l
+total 16
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:26 experiments
+-rw-r--r-- 1 vscode vscode  258 Sep 12 12:06 opening_message.txt
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ chmod 660 tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ls -l
+total 4
+-rw-rw---- 1 vscode vscode 280 Sep 12 12:26 tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cd
+vscode ➜ ~ $ lab0
+bash: lab0: command not found
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ chmod 700 archive_empty
+vscode ➜ ~/lab0 (master) $ ls -l
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:26 experiments
+-rw-r--r-- 1 vscode vscode  258 Sep 12 12:06 opening_message.txt
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ chmod u=rw,g=r,o=r opening_message.txt
+vscode ➜ ~/lab0 (master) $ ls -l
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:26 experiments
+-rw-r--r-- 1 vscode vscode  258 Sep 12 12:06 opening_message.txt
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (master) $ man cp
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ cp experiments/tasting_result victor/office/successful_experiment
+cp: cannot stat 'experiments/tasting_result': No such file or directory
+vscode ➜ ~/lab0 (master) $ cp ^C
+vscode ➜ ~/lab0 (master) $ cp experiments/tasting_results victor/office/successful_experiment
+cp: cannot stat 'experiments/tasting_results': No such file or directory
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cp experiments/tasting_results.txt victor/office/successful_experiment.txt
+cp: cannot stat 'experiments/tasting_results.txt': No such file or directory
+vscode ➜ ~/lab0/experiments (master) $ cd ~/lab0
+vscode ➜ ~/lab0 (master) $ cp experiments/tasting_results.txt victor/office/successful_experiment.txt
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ l
+bash: l: command not found
+vscode ➜ ~/lab0/victor/office (master) $ ls
+katya_schedule.txt  successful_experiment.txt
+vscode ➜ ~/lab0/victor/office (master) $ cat successful_experiment.txt
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+vscode ➜ ~/lab0/victor/office (master) $ man -l
+What manual page do you want?
+For example, try 'man man'.
+vscode ➜ ~/lab0/victor/office (master) $ man ls
+vscode ➜ ~/lab0/victor/office (master) $ cd ~/lab0
+vscode ➜ ~/lab0 (master) $ cp -r victor/kitchen/molecular_station # Вариант 6
+
+|  +--tasting_results (файл)гов и файлов                                    |  +--tasting_results (файл)
++--archive_empty (каталог)
+bash: syntax error near unexpected token `|'ов. В качестве корня дерева использовать каталог `lab0` в своём домашнем каталоге.
+bash: syntax error near unexpected token `каталог'
+bash: syntax error near unexpected token `файл'
+bash: Содержимое: command not found
+bash: text: command not found
+bash: foam_recipe:: command not found
+bash: Катя: command not found
+bash: Лёва: command not foundдля нового блюда
+bash: Баринов: command not found подачей
+bash: Рецепт: command not foundпродуктов
+bash: nitrogen_notes:: command not found
+bash: Баллон: command not found       
+bash: Катя: command not found         
+bash: Сеня: command not foundом       
+bash: После: command not foundки      
+bash: senya_report:: command not found
+bash: Сеня: command not foundно убрать
+bash: Первая: command not found       
+bash: Шеф: command not found
+bash: К: command not found
+bash: fedya_report:: command not found
+bash: Федя: command not found
+bash: Дорадо: command not found
+bash: Катя: command not found
+bash: Баринов: command not found
+bash: chef_order:: command not found
+bash: Баринов: command not found
+bash: Каждый: command not found
+bash: Катя: command not found
+bash: Результаты: command not found
+bash: reservations:: command not found
+bash: Столик: command not found
+bash: Столик: command not found
+bash: Большой: command not found
+bash: Вика: command not found
+bash: guest_reviews:: command not found
+bash: Гости: command not found
+bash: Один: command not found
+bash: Критик: command not found
+bash: Новое: command not found
+bash: katya_schedule:: command not found
+bash: Катя: command not found
+bash: До: command not found
+bash: После: command not found
+bash: Вечером: command not found
+bash: tasting_results:: command not found
+bash: Свекольная: command not found
+bash: Рыбное: command not found
+bash: Сеня: command not found
+bash: Катя: command not found
+bash: opening_message:: command not found
+bash: Ресторан: command not found
+bash: Вика: command not found
+bash: Баринов: command not found
+bash: Команда: command not found
+bash: Установить: command not found
+bash: права,: command not found
+bash: text: command not found
+bash: victor:: command not found
+bash: kitchen:: command not found
+bash: molecular_station:: command not found
+bash: foam_recipe:: command not found
+bash: nitrogen_notes:: command not found
+bash: hot_station:: command not found
+bash: группа: command not found
+bash: остальные: command not found
+bash: senya_report:: command not found
+bash: fedya_report:: command not found
+bash: chef_order:: command not found
+bash: hall:: command not found
+bash: reservations:: command not found
+bash: guest_reviews:: command not found
+bash: office:: command not found
+bash: katya_schedule:: command not found
+bash: experiments:: command not found
+bash: tasting_results:: command not found
+bash: archive_empty:: command not found
+bash: opening_message:: command not found
+bash: Выполнить: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: и: command not found
+bash: 1.: command not found
+bash: в: command not found
+bash: под: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 2.: command not found
+bash: в: command not found
+bash: под: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 3.: command not found
+bash: создать: command not found
+bash: ,: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 4.: command not found
+bash: создать: command not found
+bash: на: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 5.: command not found
+bash: на: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 6.: command not found
+bash: и: command not found
+bash: в: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 7.: command not found
+bash: в: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 8.: command not found
+bash: в: command not found
+bash: под: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: Выполнить: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: 1.: command not found
+bash: Оставить: No such file or directory
+bash: 2.: command not found
+bash: и: command not found
+bash: Вывести: No such file or directory
+bash: или: command not found
+bash: в: command not found
+bash: ,: command not found
+bash: 3.: command not found
+bash: и: command not found
+bash: содержат: command not found
+bash: хотя: command not found
+bash: 4.: command not found
+bash: в: command not found
+bash: получить: command not found
+bash: или: command not found
+bash: в: command not found
+bash: 5.: command not found
+bash: исключить: command not found
+bash: и: command not found
+bash: ,: command not found
+bash: ,: command not found
+bash: 6.: command not found
+bash: вывести: command not found
+bash: 7.: command not found
+bash: вывести: command not found
+bash: Выполнить: command not found
+bash: и: command not found
+bash: 1.: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 2.: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 3.: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 4.: command not found
+bash: ,: command not found
+bash: 5.: command not found
+bash: .: filename argument required
+.: usage: . filename [arguments]
+bash: 6.: command not found
+bash: cplnmvcatexperiments/tasting_resultsvictor/officesuccessful_experimentvictor/kitchen/molecular_stationexperimentsmolecular_backupexperimentscurrent_recipevictor/kitchen/molecular_station/foam_recipelab0kitchen_entryvictor/kitchenvictor/kitchen/shift_orderopening_messagevictor/kitchen/hot_station/senya_reportvictor/kitchen/hot_station/fedya_reportvictor/kitchen/team_reportvictor/kitchen/chef_orderexperiments/tasting_resultsvictor/hall/reservationsvictor/officeevening_reservationscatwclsheadtailechosortgreplab0victorexperimentsкатябариновгостvictor/kitchen/molecular_stationexperiments/molecular_backupкатя_reportvictor/kitchen/hot_stationблюдбариновvictor/kitchen/team_reportСеняФедяблюдlab0lab0rmrmdirexperiments/tasting_resultsexperiments/current_recipekitchen_entryopening_messagevictor/kitchen/shift_ordervictor/kitchen/molecular_station/ni: No such file or directory
+vscode ➜ ~/lab0 (master) $ cp -r victor/kitchen/molecular_station experiments/molecular_backup
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cd molecular_backup
+vscode ➜ ~/lab0/experiments/molecular_backup (master) $ ls
+foam_recipe.txt  nitrogen_notes.txt
+vscode ➜ ~/lab0/experiments/molecular_backup (master) $ cd ~/lab0
+vscode ➜ ~/lab0 (master) $ ln -s victor/kitchen/molecular_station/foam_recipe experiments/current_recipe
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ls -l
+total 8
+lrwxrwxrwx 1 vscode vscode   44 Sep 12 15:26 current_recipe -> victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 15:21 molecular_backup
+-rw-rw---- 1 vscode vscode  280 Sep 12 12:26 tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ rm current_recipe
+vscode ➜ ~/lab0/experiments (master) $ ls
+molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ man ln
+vscode ➜ ~/lab0/experiments (master) $ ln -s ../victor/kitchen/molecular_station/foam_recipe experiments/current_recipe
+ln: failed to create symbolic link 'experiments/current_recipe': No such file or directory
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ln -s ../victor/kitchen/molecular_station/foam_recipe experiments/current_recipe
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ls -l
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 15:48 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 15:21 molecular_backup
+-rw-rw---- 1 vscode vscode  280 Sep 12 12:26 tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ rm current_recipe
+vscode ➜ ~/lab0/experiments (master) $ ls
+molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ln -s ../victor/kitchen/molecular_station/foam_recipe.txt experiments/current_recipe
+ln: failed to create symbolic link 'experiments/current_recipe': No such file or directory
+vscode ➜ ~/lab0/experiments (master) $ ls
+molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ln -s ../victor/kitchen/molecular_station/foam_recipe.txt experiments/current_recipe
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ ls -l
+total 8
+lrwxrwxrwx 1 vscode vscode   51 Sep 12 15:52 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe.txt
+drwxr-x--- 2 vscode vscode 4096 Sep 12 15:21 molecular_backup
+-rw-rw---- 1 vscode vscode  280 Sep 12 12:26 tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ln -s victor/kitchen kitchen_entry
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  kitchen_entry  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ ln opening_message.txt victor/kitchen/shift_order
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ cd kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls -l
+total 16
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order.txt
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:49 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 12:46 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station  shift_order
+vscode ➜ ~/lab0/victor/kitchen (master) $ cat shift_order
+Ресторан Victor открывается в полдень
+Вика встречает первых гостей
+Баринов лично проверяет новое меню
+Команда собирается на кухне до открытия
+vscode ➜ ~/lab0/victor/kitchen (master) $ ../../
+bash: ../../: Is a directory
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd ../../
+vscode ➜ ~/lab0 (master) $ cat victor/kitchen/hot_station/senya_report victor/kitchen/hot_station/fedya_report > victor/kitchen/team_report
+cat: victor/kitchen/hot_station/senya_report: No such file or directory
+cat: victor/kitchen/hot_station/fedya_report: No such file or directory
+vscode ➜ ~/lab0 (master) $ cat victor/kitchen/hot_station/senya_report.txt victor/kitchen/hot_station/fedya_report.txt > victor/kitchen/team_report.txt
+vscode ➜ ~/lab0 (master) $ cd vector/kitchen
+bash: cd: vector/kitchen: No such file or directory
+vscode ➜ ~/lab0 (master) $ cd victor/kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station  shift_order  team_report  team_report.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ cat team_report
+vscode ➜ ~/lab0/victor/kitchen (master) $ cat team_report.txt
+Сеня подготовил мясо для горячего блюда
+Первая партия отправлена в зал
+Шеф потребовал переделать соус
+К вечеру заказ был выполнен
+Федя получил свежую рыбу
+Дорадо подготовлена для постоянных гостей
+Катя предложила необычную подачу блюда
+Баринов одобрил только второй вариант
+vscode ➜ ~/lab0/victor/kitchen (master) $ rm team_report
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station  shift_order  team_report.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd ../../
+vscode ➜ ~/lab0 (master) $ cat victor/kitchen/chef_order.txt experiments/tasting_results.txt
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+vscode ➜ ~/lab0 (master) $ cat experiments/tasting_results.txt
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+vscode ➜ ~/lab0 (master) $ cd victor/kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station  shift_order  team_report.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ cat chef_order.txt
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd ../../
+vscode ➜ ~/lab0 (master) $ cat experiments/tasting_results.txt
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+vscode ➜ ~/lab0 (master) $ cat victor/kitchen/chef_order.txt >> experiments/tasting_results.txt
+vscode ➜ ~/lab0 (master) $ cat experiments/tasting_results.txt
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+vscode ➜ ~/lab0 (master) $ cat victor/kitchen/chef_order.txt
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+vscode ➜ ~/lab0 (master) $ man mv
+vscode ➜ ~/lab0 (master) $ mv # Вариант 6
+
+vscode ➜ ~/lab0 (master) $ mv victor/hall/reservations.txt victor/office/evening_reservations
+vscode ➜ ~/lab0 (master) $ cd victor/office
+vscode ➜ ~/lab0/victor/office (master) $ ls
+evening_reservations  katya_schedule.txt  successful_experiment.txt
+vscode ➜ ~/lab0/victor/office (master) $ cat evening_reservations
+Столик два забронирован для критика
+Столик пять подготовить к семнадцати часам
+Большой стол оставить для команды ресторана
+Вика проверит готовность зала перед открытием
+vscode ➜ ~/lab0/victor/office (master) $ cd ../../
+vscode ➜ ~/lab0 (master) $ cd kitchen
+bash: cd: kitchen: No such file or directory
+vscode ➜ ~/lab0 (master) $ mv # Вариант 6
+
+vscode ➜ ~/lab0 (master) $ cd # Вариант 6
+
+vscode ➜ ~/lab0 (master) $ cd victor/hall
+vscode ➜ ~/lab0/victor/hall (master) $ ls
+guest_reviews.txt
+vscode ➜ ~/lab0/victor/hall (master) $ cd ../
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ ls
+evening_reservations  katya_schedule.txt  successful_experiment.txt
+vscode ➜ ~/lab0/victor/office (master) $ cd ../
+vscode ➜ ~/lab0/victor (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  kitchen_entry  opening_message.txt  victor
+vscode ➜ ~/lab0 (master) $ mv opening_message.txt opening_message
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  kitchen_entry  opening_message  victor
+vscode ➜ ~/lab0 (master) $ cat opening_message
+Ресторан Victor открывается в полдень
+Вика встречает первых гостей
+Баринов лично проверяет новое меню
+Команда собирается на кухне до открытия
+vscode ➜ ~/lab0 (master) $ cd expirements
+bash: cd: expirements: No such file or directory
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results.txt
+vscode ➜ ~/lab0/experiments (master) $ mv tasting_results.txt tasting_results
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results
+vscode ➜ ~/lab0/experiments (master) $ cat tasting_results
+Свекольная пена получила высокую оценку
+Рыбное блюдо нужно подать горячее
+Сеня предложил изменить мясной соус
+Катя подготовит итоговый рецепт вечером
+Баринов проводит дегустацию после обеда
+Каждый повар представляет одно новое блюдо
+Катя отвечает за молекулярную часть меню
+Результаты передать Лёве до вечерней смены
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ cd victor
+vscode ➜ ~/lab0/victor (master) $ ls
+hall  kitchen  office
+vscode ➜ ~/lab0/victor (master) $ cd office
+vscode ➜ ~/lab0/victor/office (master) $ ls
+evening_reservations  katya_schedule.txt  successful_experiment.txt
+vscode ➜ ~/lab0/victor/office (master) $ mv katya_schedule.txt katya_schedule
+vscode ➜ ~/lab0/victor/office (master) $ mv successful_experiment.txt successful_experiment
+vscode ➜ ~/lab0/victor/office (master) $ ls
+evening_reservations  katya_schedule  successful_experiment
+vscode ➜ ~/lab0/victor/office (master) $ cd ../
+vscode ➜ ~/lab0/victor (master) $ cd hall
+vscode ➜ ~/lab0/victor/hall (master) $ ls
+guest_reviews.txt
+vscode ➜ ~/lab0/victor/hall (master) $ mv guest_reviews.txt guest_reviews
+vscode ➜ ~/lab0/victor/hall (master) $ ls
+guest_reviews
+vscode ➜ ~/lab0/victor/hall (master) $ cd ../
+vscode ➜ ~/lab0/victor (master) $ cd kitchen
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order.txt  hot_station  molecular_station  shift_order  team_report.txt
+vscode ➜ ~/lab0/victor/kitchen (master) $ mv chef_order.txt chef_order
+vscode ➜ ~/lab0/victor/kitchen (master) $ mv team_report.txt team_report
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order  hot_station  molecular_station  shift_order  team_report
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd hot_station
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls
+fedya_report.txt  senya_report.txt
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ mv fedya_report.txt fedya_report
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ mv senya_report.txt senya_report
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ ls
+fedya_report  senya_report
+vscode ➜ ~/lab0/victor/kitchen/hot_station (master) $ cd ../
+vscode ➜ ~/lab0/victor/kitchen (master) $ ls
+chef_order  hot_station  molecular_station  shift_order  team_report
+vscode ➜ ~/lab0/victor/kitchen (master) $ cd molecular_station
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls
+foam_recipe.txt  nitrogen_notes.txt
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ mv foam_recipe.txt foam_recipe
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ mv nitrogen_notes.txt nitrogen_notes
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ ls
+foam_recipe  nitrogen_notes
+vscode ➜ ~/lab0/victor/kitchen/molecular_station (master) $ cd
+vscode ➜ ~ $ lab0
+bash: lab0: command not found
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results
+vscode ➜ ~/lab0/experiments (master) $ rm current_recipe
+vscode ➜ ~/lab0/experiments (master) $ ls
+molecular_backup  tasting_results
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ln -s ../victor/kitchen/molecular_station/foam_recipe experiments/current_recipe
+vscode ➜ ~/lab0 (master) $ cd experiments
+vscode ➜ ~/lab0/experiments (master) $ ls
+current_recipe  molecular_backup  tasting_results
+vscode ➜ ~/lab0/experiments (master) $ ls -l
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 15:21 molecular_backup
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+vscode ➜ ~/lab0/experiments (master) $ cd ../
+vscode ➜ ~/lab0 (master) $ ls
+archive_empty  experiments  kitchen_entry  opening_message  victor
+vscode ➜ ~/lab0 (master) $ ls -l
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (master) $ man cat
+vscode ➜ ~/lab0 (master) $ cat -A
+
+$
+vscode ➜ ~/lab0 (master) $ cd ../
+vscode ➜ ~ $ cat -A lab0
+cat: lab0: Is a directory
+vscode ➜ ~ $ cat -A ~/lab0
+cat: /home/vscode/lab0: Is a directory
+vscode ➜ ~ $ cd lab0
+vscode ➜ ~/lab0 (master) $ ls -l
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+vscode ➜ ~/lab0 (master) $ man ls
+vscode ➜ ~/lab0 (master) $ man ls
+vscode ➜ ~/lab0 (master) $ ls -R
+.:
+archive_empty  experiments  kitchen_entry  opening_message  victor
+
+./archive_empty:
+
+./experiments:
+current_recipe  molecular_backup  tasting_results
+
+./experiments/molecular_backup:
+foam_recipe.txt  nitrogen_notes.txt
+
+./victor:
+hall  kitchen  office
+
+./victor/hall:
+guest_reviews
+
+./victor/kitchen:
+chef_order  hot_station  molecular_station  shift_order  team_report
+
+./victor/kitchen/hot_station:
+fedya_report  senya_report
+
+./victor/kitchen/molecular_station:
+foam_recipe  nitrogen_notes
+
+./victor/office:
+evening_reservations  katya_schedule  successful_experiment
+vscode ➜ ~/lab0 (master) $ ls -l-R
+ls: invalid option -- '-'
+Try 'ls --help' for more information.
+vscode ➜ ~/lab0 (master) $ ls -lR
+.:
+total 16
+drwx------ 2 vscode vscode 4096 Sep 12 11:59 archive_empty
+drwxr-x--- 3 vscode vscode 4096 Sep 12 16:47 experiments
+lrwxrwxrwx 1 vscode vscode   14 Sep 12 16:00 kitchen_entry -> victor/kitchen
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+drwxr-xr-x 5 vscode vscode 4096 Sep 12 12:27 victor
+
+./archive_empty:
+total 0
+
+./experiments:
+total 8
+lrwxrwxrwx 1 vscode vscode   47 Sep 12 16:47 current_recipe -> ../victor/kitchen/molecular_station/foam_recipe
+drwxr-x--- 2 vscode vscode 4096 Sep 12 15:21 molecular_backup
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+
+./experiments/molecular_backup:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe.txt
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes.txt
+
+./victor:
+total 12
+drwxr-xr-x 2 vscode vscode 4096 Sep 12 16:43 hall
+drwxr-x--- 4 vscode vscode 4096 Sep 12 16:44 kitchen
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:41 office
+
+./victor/hall:
+total 4
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+
+./victor/kitchen:
+total 20
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 hot_station
+drwxr-x--- 2 vscode vscode 4096 Sep 12 16:45 molecular_station
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+
+./victor/kitchen/hot_station:
+total 8
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+
+./victor/kitchen/molecular_station:
+total 8
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+
+./victor/office:
+total 12
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (master) $ ls -lR | grep "^-"
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe.txt
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes.txt
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+vscode ➜ ~/lab0 (master) $ ls -lR | grep "^-" | sort -nk5
+-rw-r--r-- 1 vscode vscode 240 Sep 12 12:48 senya_report
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 opening_message
+-rw-r--r-- 2 vscode vscode  258 Sep 12 12:06 shift_order
+-rw-r----- 1 vscode vscode 266 Sep 12 12:46 nitrogen_notes
+-rw-r----- 1 vscode vscode 266 Sep 12 15:21 nitrogen_notes.txt
+-rw-r--r-- 1 vscode vscode 269 Sep 12 12:49 fedya_report
+-rw-r----- 1 vscode vscode 280 Sep 12 15:14 successful_experiment
+-rw-r----- 1 vscode vscode 292 Sep 12 12:29 katya_schedule
+-r--r--r-- 1 vscode vscode 296 Sep 12 12:32 guest_reviews
+-rw-r----- 1 vscode vscode  311 Sep 12 12:39 chef_order
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe.txt
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+vscode ➜ ~/lab0 (master) $ man sort
+vscode ➜ ~/lab0 (master) $ ls -lR | grep "^-" } sort -nk5 | tail -n5
+grep: invalid option -- 'k'
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+vscode ➜ ~/lab0 (master) $ ls -lR | grep "^-" | sort -nk5 | tail -n5
+-rw-r----- 1 vscode vscode 312 Sep 12 12:46 foam_recipe
+-rw-r----- 1 vscode vscode 312 Sep 12 15:21 foam_recipe.txt
+-rw-rw-r-- 1 vscode vscode 315 Sep 12 12:32 evening_reservations
+-rw-r--r-- 1 vscode vscode  509 Sep 12 16:12 team_report
+-rw-rw---- 1 vscode vscode  591 Sep 12 16:19 tasting_results
+vscode ➜ ~/lab0 (master) $ git add .
+vscode ➜ ~/lab0 (master) $ git commit -m 'Пункты 1-3'
